@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title></title>
+  <style>
+    .button {
+      background-color: #1774ee;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(70, 238, 121) ">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/whitelist">Admin</a>
+          </p>
+
+          <br /><br />
+        </li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="/user">User</a><br /><br />
+        </li>
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+        <li>
+
+        <li>
+          <form action="unsolded" method="post">
+            <button type="submit" class="btn btn-primary">Remainig</button>
+
+          </form>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
+          <form action="preSaleStart" method="post">
+            <button type="submit" class="btn btn-primary">PreSaleStart</button>
+
+          </form>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
+          <button class="button" onclick="getCurrentDate()">Get current time</button>
+
+          <p>
+            <!-- Current date/time in milliseconds is:  -->
+            <span style="display:none;" class="output-msecs">
+          </p>
+
+          <p> &nbsp;&nbsp;&nbsp;
+            <!-- Current date/time in seconds is:  -->
+            <span class="output-secs">
+          </p>
+
+          <p>
+            <!-- Current date/time in words is:  -->
+            <span style="display:none;" class="output-words">
+          </p>
+        </li>
+
+
+
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <center>
+      <p style="font-size:50px;color:rgb(18, 34, 107)">USER PANEL</p>
+    </center>
+
+
+    <form action="mint" method="post">
+      <h4>Set Presale mint</h4>
+      <div class="row">
+        <div class="col-md-6">
+
+          <!-- function mint( id, count,  ads, amt,bytes32[] calldata proof -->
+          <div class="mb-3">
+
+
+            <input type="text" name="id" id="id" class="form-control" placeholder="tokenID" />
+            <input type="text" name="count" id="count" class="form-control" placeholder="count" />
+
+            <input type="text" name="proof" id="proof" value="<%= proof %>" class="form-control" placeholder="proof" />
+            <input type="text" name="ads" id="ads" class="form-control" placeholder="address" />
+            <input type="text" name="amt" id="amt" class="form-control" placeholder="amout" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">MINT</button>
+      </div>
+    </form>
+    <hr class="new5">
+
+
+
+    <form action="publicSaleMintWithEth" method="post">
+      <h4>publicSaleMintWithEth</h4>
+      <div class="row">
+        <div class="col-md-6">
+
+          <!-- function mint( id, count,  ads, amt,bytes32[] calldata proof -->
+          <div class="mb-3">
+
+
+            <input type="text" name="count" id="count" class="form-control" placeholder="count" />
+
+            <input type="text" name="ads" id="ads" class="form-control" placeholder="address" />
+            <input type="text" name="amt" id="amt" class="form-control" placeholder="amout" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">MINT</button>
+      </div>
+    </form>
+    <hr class="new5">
+
+
+
+  </div>
+
+
+
+
+  <script type="text/javascript">
+    function getCurrentDate() {
+      dateInMillisecs = Date.now();
+
+      // rounding the value to prevent inconsistencies
+      // due to floating points
+      dateInSecs = Math.round(dateInMillisecs / 1000);
+      dateInWords = new Date(dateInMillisecs);
+      document.querySelector('.output-msecs').textContent =
+        dateInMillisecs;
+      document.querySelector('.output-secs').textContent =
+        dateInSecs;
+      document.querySelector('.output-words').textContent =
+        dateInWords;
+    }
+  </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <!-- <h3>Result</h3> <span id="spanResult"> </span> -->
+  </center>
+</body>
+<script type="text/javascript">
+
+
+</script>
+
+</html>

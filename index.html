@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Merkle tree
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const addressess = [
+            "0x617F2E2fD72FD9D5503197092aC168c91465E7f2",
+            "0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB",
+            "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db",
+            "0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
+            "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"]
+        const leaves = addressess.map(x => keccak256(x))
+        const tree = new MerkleTree(leaves, keccak256, {
+            sortPairs: true
+        })
+        const buf2hex = x => '0x' + x.toString("hex")
+
+        // const clain=leaves[0];
+        // console.log("claoinn",clain);
+
+        // const hexProof = tree.getHexProof(clain);
+        // console.log("hexprroooof",hexProof)
+        //can anyone  share details about presale and publicsale smartcontract on erc1155 nft?
+        console.log(buf2hex(tree.getRoot()))
+    </script>
+</body>
+
+</html>
